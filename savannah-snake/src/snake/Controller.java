@@ -84,8 +84,8 @@ public class Controller implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//start game
 		if(startPanel.getPlay().equals(e.getSource())){
-			//start the game
 			mainFrame.remove(startPanel);
 			mainFrame.add(gamePanel);
 			mainFrame.revalidate();
@@ -94,7 +94,6 @@ public class Controller implements ActionListener {
 			gamePanel.addKeyListener(keyboard);
 			gamePanel.requestFocus();
 			timer.start();
-			//gameWindow();
 		}
 		else if(startPanel.getExit().equals(e.getSource())){
 			System.exit(0);
@@ -111,6 +110,7 @@ public class Controller implements ActionListener {
 			gamePanel.repaint();
 			mainFrame.revalidate();
 		}
+		//game over
 		else if(!SnakeModel.isInGame()){
 			timer.stop();
 			mainFrame.remove(gamePanel);

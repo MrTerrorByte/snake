@@ -90,10 +90,7 @@ public class MainFrame extends JFrame {
 		public void paint(Graphics g){
 			SnakeModel snake = Controller.getSnake();
 			OrangeModel orange = snake.getCurrOrange();
-			
-			/*	w/o this, the panel would not refresh.
-			 * 	buttons wouldn't go away.. trailing oranges
-			 */
+
 			super.paint(g);
 			Graphics2D gr= (Graphics2D) g;
 			
@@ -112,10 +109,6 @@ public class MainFrame extends JFrame {
 				//I use snakeImage.getWidth() so it knows to scale down the size of the image
 				gr.drawImage(snakeImage, currX, currY, currX+snakeWidth, currY+snakeHeight, 0, 0, snakeImage.getWidth(null), snakeImage.getHeight(null), this);
 				
-				/* Reason i start at 1: because of my move(), the first dot will always
-				 * be at the same position as savannah, so if i include the first dot,
-				 * the orange will just cover her face.
-				 */
 				for(int i=0; i < snake.getNumOranges(); i++){
 					int orangeX = tail[i].getXcoords();
 					int orangeY = tail[i].getYcoords();
